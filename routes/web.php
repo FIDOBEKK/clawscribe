@@ -7,9 +7,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'marketing.home')->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::redirect('/dashboard', '/minutes')
+    ->middleware(['auth', 'verified'])
+    ->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/minutes', [MinuteController::class, 'index'])->name('minutes.index');
