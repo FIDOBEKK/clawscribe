@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    // External binaries used for document text extraction.
+    'pdftotext' => env('PDFTOTEXT_BINARY', 'pdftotext'),
+    'pandoc' => env('PANDOC_BINARY', 'pandoc'),
+
 ];
