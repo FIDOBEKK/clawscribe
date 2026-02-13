@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\HtmlString;
+use Illuminate\Support\Str;
 
 class Minute extends Model
 {
@@ -36,6 +38,21 @@ class Minute extends Model
     public function scopeForUser(Builder $query, User $user): Builder
     {
         return $query->where('user_id', $user->id);
+    }
+
+    /**
+     * Render markdown to safe HTML.
+     */
+    public function getRenderedMarkdownAttribute(): HtmlString
+    {
+        $html = Str::markdown($this->markdown ?? '', [
+            // Safety: do not allow raw HTML input in stored markdown.
+            'html_input' => 'strip',
+            // Safety: avoid javascript: links, etc.
+            'allow_unsafe_links' => false,
+        ]);
+
+        return new HtmlString($html);
     }
 
     /**

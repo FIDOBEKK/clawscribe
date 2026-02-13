@@ -38,7 +38,19 @@
 
                     <div>
                         <h3 class="text-base font-semibold">{{ __('Minutes') }}</h3>
-                        <pre class="mt-3 whitespace-pre-wrap rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-6 text-gray-900">{{ $minute->markdown }}</pre>
+
+                        <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5">
+                            <div class="prose max-w-none">
+                                {!! $minute->rendered_markdown !!}
+                            </div>
+                        </div>
+
+                        <details class="mt-4">
+                            <summary class="cursor-pointer text-sm text-gray-700 underline">
+                                {{ __('Show raw Markdown') }}
+                            </summary>
+                            <pre class="mt-3 whitespace-pre-wrap rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm leading-6 text-gray-900">{{ $minute->markdown }}</pre>
+                        </details>
                     </div>
                 </div>
             </div>
