@@ -16,6 +16,10 @@
                         {{ __('Minutes') }}
                     </x-nav-link>
 
+                    <x-nav-link :href="route('settings.minutes-preferences.edit')" :active="request()->routeIs('settings.minutes-preferences.*')">
+                        {{ __('Minutes format') }}
+                    </x-nav-link>
+
                     <x-nav-link :href="route('settings.api-tokens.index')" :active="request()->routeIs('settings.api-tokens.*')">
                         {{ __('API tokens') }}
                     </x-nav-link>
@@ -73,6 +77,10 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('minutes.index')" :active="request()->routeIs('minutes.*')">
                 {{ __('Minutes') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('settings.minutes-preferences.edit')" :active="request()->routeIs('settings.minutes-preferences.*')">
+                {{ __('Minutes format') }}
             </x-responsive-nav-link>
 
             <x-responsive-nav-link :href="route('settings.api-tokens.index')" :active="request()->routeIs('settings.api-tokens.*')">
