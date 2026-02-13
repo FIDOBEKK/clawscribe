@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9437dd26ea7eeada1d08835ab3eae728",
+    "content-hash": "b88fd6e077cd15a62478f52b0ea3a76a",
     "packages": [
         {
             "name": "brick/math",
@@ -3945,25 +3945,25 @@
         },
         {
             "name": "spatie/pdf-to-text",
-            "version": "1.55.0",
+            "version": "1.54.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/pdf-to-text.git",
-                "reference": "c5c6c7fa8aaa34de7eb6cde42b45aec480c8afb6"
+                "reference": "ad2a792c7e1e68f1bc9b038dc73cdcf760595fbb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/pdf-to-text/zipball/c5c6c7fa8aaa34de7eb6cde42b45aec480c8afb6",
-                "reference": "c5c6c7fa8aaa34de7eb6cde42b45aec480c8afb6",
+                "url": "https://api.github.com/repos/spatie/pdf-to-text/zipball/ad2a792c7e1e68f1bc9b038dc73cdcf760595fbb",
+                "reference": "ad2a792c7e1e68f1bc9b038dc73cdcf760595fbb",
                 "shasum": ""
             },
             "require": {
-                "php": "^8.4",
-                "symfony/process": "^7.0|^8.0"
+                "php": "^7.4|^8.0",
+                "symfony/process": "^4.0|^5.0|^6.0|^7.0"
             },
             "require-dev": {
-                "laravel/pint": "^1.18",
-                "pestphp/pest": "^4.0"
+                "pestphp/pest-plugin-laravel": "^1.3",
+                "phpunit/phpunit": "^9.5"
             },
             "type": "library",
             "autoload": {
@@ -3991,7 +3991,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/pdf-to-text/issues",
-                "source": "https://github.com/spatie/pdf-to-text/tree/1.55.0"
+                "source": "https://github.com/spatie/pdf-to-text/tree/1.54.1"
             },
             "funding": [
                 {
@@ -3999,7 +3999,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2025-11-24T16:51:50+00:00"
+            "time": "2025-06-13T15:23:19+00:00"
         },
         {
             "name": "spatie/shiki-php",
