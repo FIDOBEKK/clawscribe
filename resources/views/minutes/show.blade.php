@@ -40,8 +40,10 @@
                         <h3 class="text-base font-semibold">{{ __('Minutes') }}</h3>
 
                         <div class="mt-3 rounded-lg border border-gray-200 bg-white p-5">
-                            <div class="prose max-w-none">
-                                {!! $minute->rendered_markdown !!}
+                            <div class="overflow-x-auto">
+                                <div class="prose prose-slate max-w-none">
+                                    {!! $minute->rendered_markdown !!}
+                                </div>
                             </div>
                         </div>
 

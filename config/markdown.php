@@ -76,7 +76,8 @@ return [
      * More info: https://commonmark.thephpleague.com/2.4/extensions/overview/
      */
     'extensions' => [
-        //
+        // Enables GitHub Flavored Markdown features (tables, strikethrough, task lists, autolinks, etc.).
+        League\CommonMark\Extension\GithubFlavoredMarkdownExtension::class,
     ],
 
     /*
