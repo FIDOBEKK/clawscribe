@@ -59,6 +59,12 @@
                                     </form>
                                 </div>
 
+                                @if ($template->getCustomProperty('extracted_text_error'))
+                                    <div class="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-900">
+                                        {{ __('Could not extract text from this file. Install pdftotext (poppler-utils) or configure PDFTOTEXT_BINARY.') }}
+                                    </div>
+                                @endif
+
                                 @if ($preference->template_extracted_text)
                                     <details class="mt-4">
                                         <summary class="cursor-pointer text-sm text-gray-700 underline">

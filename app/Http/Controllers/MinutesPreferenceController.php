@@ -51,9 +51,25 @@ class MinutesPreferenceController extends Controller
             ->addMediaFromRequest('template')
             ->toMediaCollection('template');
 
-        $text = $extractor->extract($media->getPath(), (string) $media->mime_type, (string) $media->file_name);
+        $text = null;
+        $error = null;
+
+        try {
+            $text = $extractor->extract($media->getPath(), (string) $media->mime_type, (string) $media->file_name);
+        } catch (\Throwable $e) {
+            $error = $e->getMessage();
+
+            logger()->warning('Minutes template text extraction failed.', [
+                'user_id' => $request->user()->id,
+                'media_id' => $media->id,
+                'mime_type' => $media->mime_type,
+                'file_name' => $media->file_name,
+                'exception' => get_class($e),
+            ]);
+        }
 
         $media->setCustomProperty('extracted_text', $text);
+        $media->setCustomProperty('extracted_text_error', $error);
         $media->save();
 
         $preference->update([
@@ -75,9 +91,25 @@ class MinutesPreferenceController extends Controller
             ->addMediaFromRequest('example')
             ->toMediaCollection('examples');
 
-        $text = $extractor->extract($media->getPath(), (string) $media->mime_type, (string) $media->file_name);
+        $text = null;
+        $error = null;
+
+        try {
+            $text = $extractor->extract($media->getPath(), (string) $media->mime_type, (string) $media->file_name);
+        } catch (\Throwable $e) {
+            $error = $e->getMessage();
+
+            logger()->warning('Minutes example text extraction failed.', [
+                'user_id' => $request->user()->id,
+                'media_id' => $media->id,
+                'mime_type' => $media->mime_type,
+                'file_name' => $media->file_name,
+                'exception' => get_class($e),
+            ]);
+        }
 
         $media->setCustomProperty('extracted_text', $text);
+        $media->setCustomProperty('extracted_text_error', $error);
         $media->save();
 
         return back();
