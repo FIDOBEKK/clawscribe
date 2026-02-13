@@ -19,4 +19,13 @@ class MinuteController extends Controller
             'minutes' => $minutes,
         ]);
     }
+
+    public function show(Request $request, Minute $minute): View
+    {
+        abort_unless($minute->user_id === $request->user()->id, 403);
+
+        return view('minutes.show', [
+            'minute' => $minute,
+        ]);
+    }
 }
