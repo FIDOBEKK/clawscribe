@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\HtmlString;
-use Illuminate\Support\Str;
+use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 class Minute extends Model
 {
@@ -45,12 +45,7 @@ class Minute extends Model
      */
     public function getRenderedMarkdownAttribute(): HtmlString
     {
-        $html = Str::markdown($this->markdown ?? '', [
-            // Safety: do not allow raw HTML input in stored markdown.
-            'html_input' => 'strip',
-            // Safety: avoid javascript: links, etc.
-            'allow_unsafe_links' => false,
-        ]);
+        $html = app(MarkdownRenderer::class)->toHtml($this->markdown ?? '');
 
         return new HtmlString($html);
     }
