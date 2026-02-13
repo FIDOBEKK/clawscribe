@@ -27,7 +27,9 @@
                                             {{ $minute->occurred_at?->format('Y-m-d H:i') }}
                                         </div>
                                         <div class="mt-1 font-semibold text-gray-900">
-                                            {{ $minute->title }}
+                                            <a href="{{ route('minutes.show', $minute) }}" class="underline">
+                                                {{ $minute->title }}
+                                            </a>
                                         </div>
                                         @if ($minute->drive_referat_path)
                                             <div class="mt-2 text-xs text-gray-500">

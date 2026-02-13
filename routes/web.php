@@ -13,6 +13,7 @@ Route::redirect('/dashboard', '/minutes')
 
 Route::middleware('auth')->group(function () {
     Route::get('/minutes', [MinuteController::class, 'index'])->name('minutes.index');
+    Route::get('/minutes/{minute}', [MinuteController::class, 'show'])->name('minutes.show');
 
     Route::get('/settings/api-tokens', [ApiTokenController::class, 'index'])->name('settings.api-tokens.index');
     Route::post('/settings/api-tokens', [ApiTokenController::class, 'store'])->name('settings.api-tokens.store');
