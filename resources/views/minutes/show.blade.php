@@ -5,9 +5,15 @@
                 {{ $minute->title }}
             </h2>
 
-            <a href="{{ route('minutes.index') }}" class="text-sm font-medium text-gray-900 underline">
-                {{ __('Back to list') }}
-            </a>
+            <div class="flex items-center gap-4 text-sm font-medium">
+                <a href="{{ route('minutes.pdf', $minute) }}" class="text-gray-900 underline">
+                    {{ __('Export PDF') }}
+                </a>
+
+                <a href="{{ route('minutes.index') }}" class="text-gray-900 underline">
+                    {{ __('Back to list') }}
+                </a>
+            </div>
         </div>
     </x-slot>
 
