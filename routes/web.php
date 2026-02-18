@@ -15,6 +15,7 @@ Route::redirect('/dashboard', '/minutes')
 Route::middleware('auth')->group(function () {
     Route::get('/minutes', [MinuteController::class, 'index'])->name('minutes.index');
     Route::get('/minutes/{minute}', [MinuteController::class, 'show'])->name('minutes.show');
+    Route::get('/minutes/{minute}/pdf', [MinuteController::class, 'pdf'])->name('minutes.pdf');
 
     Route::get('/settings/minutes-preferences', [MinutesPreferenceController::class, 'edit'])->name('settings.minutes-preferences.edit');
     Route::put('/settings/minutes-preferences', [MinutesPreferenceController::class, 'update'])->name('settings.minutes-preferences.update');
