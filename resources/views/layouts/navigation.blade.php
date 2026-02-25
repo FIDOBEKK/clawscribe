@@ -23,6 +23,10 @@
                     <x-nav-link :href="route('settings.api-tokens.index')" :active="request()->routeIs('settings.api-tokens.*')">
                         {{ __('API tokens') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('settings.api-documentation.index')" :active="request()->routeIs('settings.api-documentation.*')">
+                        {{ __('API docs') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -85,6 +89,10 @@
 
             <x-responsive-nav-link :href="route('settings.api-tokens.index')" :active="request()->routeIs('settings.api-tokens.*')">
                 {{ __('API tokens') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link :href="route('settings.api-documentation.index')" :active="request()->routeIs('settings.api-documentation.*')">
+                {{ __('API docs') }}
             </x-responsive-nav-link>
         </div>
 
